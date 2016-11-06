@@ -604,7 +604,11 @@ extension RichEditorView {
         If we are not already the first responder, focus the editor.
     */
     internal func viewWasTapped() {
-         focus()
+        if !webView.containsFirstResponder {
+            focus()
+        }
+        
+        self.scrollCaretToVisible()
     }
     
 }
